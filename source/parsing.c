@@ -26,24 +26,25 @@ int count_points(int fd)
     return (free_tab(grid), y_points * x_points);
 }
 
-t_point *points_tab(int fd)
+t_point **points_tab(int fd)
 {
-    t_point **points_data;
     int     i;
     int     j;
     int     k;
     int     count;
     char    *line;
     char    **array;
+    t_point **points;
 
     count = count_points(fd);
     j = 0;
-    *points_data = malloc(sizeof(t_point) * count);
+    *points = malloc(sizeof(t_point) * count);
     if (count == -1)
     {
         write(2, "Error : nothing to read\n", 25);
         exit(1);
     }
-    
-    return(*points_data);
+                            // PARSER MAP
+
+    return(points);
 }

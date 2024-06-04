@@ -35,7 +35,7 @@ int         handle_input(int keysym, t_mlx_data *data);
 
 //PARSING
 int         count_points(int fd);
-t_point     *points_tab(int fd);
+t_point     **points_tab(int fd);
 
 // ERROR MANAGEMENT
 void        exit_error(void);

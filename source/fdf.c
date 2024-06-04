@@ -26,7 +26,8 @@ int main(int argc, char **argv)
     if (fd == -1)
         exit_error();
     points = points_tab(fd);
-    free(points);
+
+
     close(fd);
     data = create_window();
     

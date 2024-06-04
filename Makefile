@@ -30,7 +30,7 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	@make bonus -C libft
 	@make -sC mlx
-	@$(CC) $(OBJS) $(LIBFT) $(MLX) -lXext -lX11 -o $(NAME)
+	@$(CC) $(OBJS) -fsanitize=address -g $(LIBFT) $(MLX) -lXext -lX11 -o $(NAME)
 
 %.o : %.c	
 	@$(CC) -o $@ -c $<
