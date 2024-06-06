@@ -19,7 +19,7 @@ RM = rm -rf
 
 SRCS = source/fdf.c source/create_window.c source/exit_error.c \
 	   source/parsing.c source/get_next_line.c source/get_next_line_utils.c \
-	   source/free_tab.c \
+	   source/free_tab.c source/place_points.c \
 
 
 OBJS = $(SRCS:.c=.o)
@@ -30,7 +30,7 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	@make bonus -C libft
 	@make -sC mlx
-	@$(CC) $(OBJS) -fsanitize=address -g $(LIBFT) $(MLX) -lXext -lX11 -o $(NAME)
+	@$(CC) $(OBJS) $(LIBFT) $(MLX) -lXext -lX11 -o $(NAME)
 
 %.o : %.c	
 	@$(CC) -o $@ -c $<

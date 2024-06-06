@@ -21,17 +21,23 @@ int main(int argc, char **argv)
     int count;
     t_mlx_data  *data;
     t_point    **points;
+    int i = 0;
 
     fd = open(argv[1], O_RDONLY, 0777);
     if (fd == -1)
         exit_error();
-    points = points_tab(fd);
-
-
+    points = fill_points_tab(fd, argv);
+    while (points[i])
+    {
+        printf("%s\n", points[i]->color);
+        i++;
+    }
     close(fd);
+
     data = create_window();
-    
     mlx_key_hook(data->mlx_window, handle_input, data);
+    place_points(points, data);
+    free_points_tab(points);
     mlx_loop(data->mlx_connection);
 }
 

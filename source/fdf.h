@@ -10,7 +10,7 @@
 # include <stdio.h>
 # include <math.h>
 
-# define HEIGHT 800
+# define HEIGHT 1200
 # define WIDTH 800
 
 typedef struct s_mlx_data
@@ -24,6 +24,8 @@ typedef struct s_point
     int     x;
     int     y;
     int     z;
+    int     x_proj;
+    int     y_proj;
     char    *color;
 }           t_point;
 
@@ -35,7 +37,12 @@ int         handle_input(int keysym, t_mlx_data *data);
 
 //PARSING
 int         count_points(int fd);
-t_point     **points_tab(int fd);
+int         to_comma(char *string);
+t_point     **init_points_tab(int fd);
+t_point     **fill_points_tab(int fd, char **argv);
+
+//PLACE POINTS
+void    place_points(t_point **points, t_mlx_data *data);
 
 // ERROR MANAGEMENT
 void        exit_error(void);
@@ -46,5 +53,7 @@ char	    *get_next_line(int fd);
 
 // FREE
 void        free_tab(char **array);
+void	    free_points_tab(t_point **array);
+void	    free_tab_error(t_point **array, int i);
 
  #endif 
