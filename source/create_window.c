@@ -12,7 +12,7 @@ t_mlx_data    *create_window(void)
                                         HEIGHT, WIDTH, "Fdf");
     if (!data->mlx_window)
     {
-        mlx_destroy_display(data->mlx_connection);
+        // mlx_destroy_display(data->mlx_connection);
         free(data->mlx_connection);
         exit_malloc();
     }

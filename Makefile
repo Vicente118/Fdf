@@ -9,7 +9,7 @@ NAME = fdf
 
 LIBFT = libft/libft.a
 
-MLX = mlx/libmlx_Linux.a
+# MLX = mlx/libmlx.a
 
 CC = cc
 
@@ -19,7 +19,7 @@ RM = rm -rf
 
 SRCS = source/fdf.c source/create_window.c source/exit_error.c \
 	   source/parsing.c source/get_next_line.c source/get_next_line_utils.c \
-	   source/free_tab.c source/place_points.c \
+	   source/free_tab.c source/place_points.c source/count_line.c\
 
 
 OBJS = $(SRCS:.c=.o)
@@ -29,11 +29,10 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 	@make bonus -C libft
-	@make -sC mlx
-	@$(CC) $(OBJS) $(LIBFT) $(MLX) -lXext -lX11 -o $(NAME)
+	@$(CC) $(OBJS) $(LIBFT) -lmlx -framework OpenGL -framework AppKit -o $(NAME) 
 
 %.o : %.c	
-	@$(CC) -o $@ -c $<
+	@$(CC) -Imlx -o $@ -c $<
 
 fclean : clean
 	@make fclean -C libft

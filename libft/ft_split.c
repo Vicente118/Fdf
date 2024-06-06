@@ -6,12 +6,13 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 16:27:55 by vdarras           #+#    #+#             */
-/*   Updated: 2024/04/02 18:40:23 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/06/06 17:50:34 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-static size_t	count_words(char const *s, char c)
+size_t	count_words(char const *s, char c)
 {
 	size_t	words;
 	size_t	indice;
