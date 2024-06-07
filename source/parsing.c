@@ -33,15 +33,14 @@ t_point **fill_points_tab(char **argv)
     char    **array;
     char    **temp;
     char    *line;
-    int     i;
-    int     j;
     int     fd;
 
     fd = open(argv[1], O_RDONLY);
     if (fd == -1)
         exit_error();
-    points = init_points_tab(argv);
-    
+    points = init_points_tab(points);
+
+
     // while (1)
     // {
     //     i = 0;
@@ -82,6 +81,13 @@ t_point **fill_points_tab(char **argv)
     // }
     close(fd);
     return (points);
+}
+
+t_point **parse_fd(char **argv)
+{
+    t_point **points;
+
+    points = init_points_tab(argv);
 }
 
 int to_comma(char *string)

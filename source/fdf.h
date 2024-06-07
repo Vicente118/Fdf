@@ -22,6 +22,13 @@ typedef struct s_mlx_data
     void    *mlx_window;
 }           t_mlx_data;
 
+typedef struct s_count
+{
+    int i;
+    int j;
+    int k;
+}           t_count;
+
 typedef struct s_point
 {
     int x;
@@ -29,7 +36,6 @@ typedef struct s_point
     int z;
     int x_proj;
     int y_proj;
-    int color;
 }           t_point;
 
 // WINDOW CREATION
@@ -47,6 +53,7 @@ int         to_comma(char *string);
 t_point     **init_points_tab(char **argv);
 t_point     **fill_points_tab(char **argv);
 size_t	    count_words(char const *s, char c);
+int         atoi_hexa(char *str);
 
 //PLACE POINTS
 void        place_points(t_point **points, t_mlx_data *data);

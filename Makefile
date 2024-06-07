@@ -19,7 +19,7 @@ RM = rm -rf
 
 SRCS = source/fdf.c source/create_window.c source/exit_error.c \
 	   source/parsing.c source/get_next_line.c source/get_next_line_utils.c \
-	   source/free_tab.c source/place_points.c source/count_line.c\
+	   source/free_tab.c source/count_line.c source/atoi_hexa.c \
 
 
 OBJS = $(SRCS:.c=.o)

@@ -23,12 +23,16 @@ int main(int argc, char **argv)
     t_point    **points;
     int i = 0;
 
+    if (argc != 2)
+    {
+        ft_putstr_fd("Error bad number of arguments\n", 2);
+        exit(1);
+    }
     points = fill_points_tab(argv);
-  
 
     data = create_window();
     mlx_key_hook(data->mlx_window, handle_input, data);
-    // free_points_tab(points);
+    free_points_tab(points);
     mlx_loop(data->mlx_connection);
 }
 
