@@ -5,8 +5,11 @@ t_point **init_points_tab(char **argv)
     int     j;
     int     count;
     t_point **points;
+    int     col;
 
-    count = count_col(argv) * count_line(argv);
+    col = count_col(argv);
+    count = col * count_line(argv);
+    printf("%d\n\n", count);
     if (count == -1)
     {
         write(2, "Error : nothing to read\n", 25);
@@ -23,80 +26,78 @@ t_point **init_points_tab(char **argv)
             free_tab_error(points, j);
         j++;
     }
-    points[j] = NULL;   
+    points[j] = NULL;
     return(points);
 }
 
 t_point **fill_points_tab(char **argv)
 {
     t_point **points;
-    char    **array;
-    char    **temp;
-    char    *line;
-    int     fd;
+    points = parse_fd(argv);
 
-    fd = open(argv[1], O_RDONLY);
-    if (fd == -1)
-        exit_error();
-    points = init_points_tab(points);
-
-
-    // while (1)
-    // {
-    //     i = 0;
-    //     line = get_next_line(fd);
-    //     if (!line)
-    //         break;
-    //     temp = ft_split(line, ' ');
-    //     array = temp;
-    //     free(line);
-    //     if (!array)
-    //         exit(1);
-    //     while (array[i])
-    //     {
-    //         if (ft_strchr(array[i], ',') == NULL)
-    //         {
-    //             points[j]->x = i;
-    //             points[j]->y = k;
-    //             points[j]->z = ft_atoi(array[i]);
-    //             points[j]->color = 0xffffff; 
-    //         }
-    //         else
-    //         {
-    //             points[j]->x = i;
-    //             points[j]->y = k;
-    //             points[j]->z = ft_atoi(array[i]);
-    //             if (ft_strchr(array[i], '\n') == NULL)
-    //             {
-    //                 points[j]->color = ;
-    //            }    
-    //             else
-    //                 points[j]->color = ;
-    //         }
-    //         j++;
-    //         i++;
-    //     }
-    //     free_tab(temp);
-    //     k++;
-    // }
-    close(fd);
     return (points);
 }
 
 t_point **parse_fd(char **argv)
 {
     t_point **points;
+    char    **array;
+    int     i;
+    int     *k;
+    char    *line;
+    int     fd;
 
     points = init_points_tab(argv);
+    // *k = 0;
+    // fd = open(argv[1], O_RDONLY);
+    // if (fd == -1)
+    //     exit_error();
+    // line = get_next_line(fd);
+    // while (line != NULL)
+    // {
+    //     loop_fd(&points, line, k, argv);
+    //     line = get_next_line(fd);
+    // }
+    return (points);
 }
 
-int to_comma(char *string)
+void    loop_fd(t_point ***points, char *line, int *k, char **argv)
 {
-    char    new_str;
+    char    **array;
+    char    *temp;
     int     i;
+    int     count;
 
+
+    array = ft_split(line, ' ');
+    count = count_nb(array);
     i = 0;
-    while (string[i] != ',')
+    while (array[i])
+    {
+        if (ft_strncmp(array[i], "\n", 1) == 0)
+            break;
+        (*points)[*k]->x = i;
+        (*points)[*k]->y = *k / count;
+        (*points)[*k]->z = ft_atoi(array[i]);
+        if (ft_strchr(array[i], ',') == NULL)
+            (*points)[*k]->color = atoi_hexa("FFFFFF");
+        else
+            (*points)[*k]->color = atoi_hexa(ft_strchr(array[i], 'x') + 1);
         i++;
+        *k++;
+    }
+    free_tab(array);
+}
+
+int count_nb(char **array)
+{
+    int i;
+
+    while (array[i])
+    {
+        if (ft_strncmp(array[i], "\n", 1) == 0)
+            break;
+        i++;
+    }
     return (i);
 }

@@ -13,8 +13,11 @@
 # include <math.h>
 # include "../mlx/mlx.h"
 
-# define HEIGHT 1200
-# define WIDTH 800
+# define HEIGHT 1920
+# define WIDTH 1080
+// ALPHA WIDHT / HEIGHT
+// FOV  1 / tan(teta / 2)
+// lambda (Zfar / (Zfar - Znear)) - ((Zfar * Znear) / (Zfar - Znear))
 
 typedef struct s_mlx_data
 {
@@ -34,6 +37,7 @@ typedef struct s_point
     int x;
     int y;
     int z;
+    int color;
     int x_proj;
     int y_proj;
 }           t_point;
@@ -48,8 +52,9 @@ int         handle_input(int keysym, t_mlx_data *data);
 int         count_points(int fd);
 int         count_col(char **argv);
 int         count_line(char **argv);
-
-int         to_comma(char *string);
+int         count_nb(char **array);
+void        loop_fd(t_point ***points, char *line, int *k, char **argv);
+t_point     **parse_fd(char **argv);
 t_point     **init_points_tab(char **argv);
 t_point     **fill_points_tab(char **argv);
 size_t	    count_words(char const *s, char c);

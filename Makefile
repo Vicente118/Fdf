@@ -13,7 +13,7 @@ LIBFT = libft/libft.a
 
 CC = cc
 
-CFLAGS = -Werror -Wall -Wextra 
+CFLAGS = -Werror -Wall -Wextra -g -fsanitize=address
 
 RM = rm -rf
 
@@ -29,7 +29,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 	@make bonus -C libft
-	@$(CC) $(OBJS) $(LIBFT) -lmlx -framework OpenGL -framework AppKit -o $(NAME) 
+	@$(CC) $(OBJS) $(LIBFT) $(CFLAGS) -lmlx -framework OpenGL -framework AppKit -o $(NAME) 
 
 %.o : %.c	
 	@$(CC) -Imlx -o $@ -c $<

@@ -32,7 +32,7 @@ int main(int argc, char **argv)
 
     data = create_window();
     mlx_key_hook(data->mlx_window, handle_input, data);
-    free_points_tab(points);
+    // free_points_tab(pointmakes);
     mlx_loop(data->mlx_connection);
 }
 
