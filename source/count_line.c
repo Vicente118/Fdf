@@ -7,6 +7,8 @@ int	count_col(char **argv)
 	int		fd;
 
 	fd = open(argv[1], O_RDONLY, 0777);
+	if (fd == -1)
+		exit_error();
 	count = 0;
 	line = get_next_line(fd);
 	if (!line)
@@ -14,6 +16,7 @@ int	count_col(char **argv)
 	count = count_words(line, ' ');
 	if (*(ft_strrchr(line, ' ') + 1) == '\n')
 		count--;
+	free (line);
 	close (fd);
 	return (count);
 }
@@ -26,6 +29,8 @@ int	count_line(char **argv)
 	
 	count = 0;
     fd = open(argv[1], O_RDONLY, 0777);
+	if (fd == -1)
+		exit_error();
 	line = get_next_line(fd);
 	while (line)
 	{

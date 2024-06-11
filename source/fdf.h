@@ -4,26 +4,25 @@
 //# include "../mlx/mlx.h"
 # include "get_next_line.h"
 # include "../libft/libft.h"
-# ifdef LINUX
+#ifdef __linux__
     # include <X11/keysym.h>
-# endif
+    # include "../mlx_linux/mlx.h"
+#endif
+#ifdef __APPLE__
+    # define XK_Escape 53
+    # include "../mlx/mlx.h"
+#endif
+
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
 # include <math.h>
-# include "../mlx/mlx.h"
 
 # define HEIGHT 1920
 # define WIDTH 1080
 // ALPHA WIDHT / HEIGHT
 // FOV  1 / tan(teta / 2)
 // lambda (Zfar / (Zfar - Znear)) - ((Zfar * Znear) / (Zfar - Znear))
-
-typedef struct s_mlx_data
-{
-    void    *mlx_connection;
-    void    *mlx_window;
-}           t_mlx_data;
 
 typedef struct s_count
 {
@@ -41,6 +40,22 @@ typedef struct s_point
     int x_proj;
     int y_proj;
 }           t_point;
+
+typedef struct s_img
+{
+    void    *img_ptr;
+    char    *img_pixels_ptr;
+    int     bits_per_pixel;
+    int     endian;
+    int     size_line;
+}           t_img;
+
+typedef struct s_mlx_data
+{
+    void    *mlx_connection;
+    void    *mlx_window;
+    t_img   *img;
+}           t_mlx_data;
 
 // WINDOW CREATION
 t_mlx_data  *create_window(void);
@@ -62,6 +77,9 @@ int         atoi_hexa(char *str);
 
 //PLACE POINTS
 void        place_points(t_point **points, t_mlx_data *data);
+void        draw_menu(t_mlx_data **data);
+void        draw_background(t_mlx_data **data);
+void        draw(t_mlx_data **data);
 
 // ERROR MANAGEMENT
 void        exit_error(void);
@@ -75,4 +93,4 @@ void        free_tab(char **array);
 void	    free_points_tab(t_point **array);
 void	    free_tab_error(t_point **array, int i);
 
- #endif 
+#endif 

@@ -18,3 +18,4 @@ t_mlx_data    *create_window(void)
     }
     return (data);
 }
+

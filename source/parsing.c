@@ -9,7 +9,6 @@ t_point **init_points_tab(char **argv)
 
     col = count_col(argv);
     count = col * count_line(argv);
-    printf("%d\n\n", count);
     if (count == -1)
     {
         write(2, "Error : nothing to read\n", 25);
@@ -30,34 +29,27 @@ t_point **init_points_tab(char **argv)
     return(points);
 }
 
-t_point **fill_points_tab(char **argv)
-{
-    t_point **points;
-    points = parse_fd(argv);
-
-    return (points);
-}
-
 t_point **parse_fd(char **argv)
 {
     t_point **points;
     char    **array;
     int     i;
-    int     *k;
+    int     k;
     char    *line;
     int     fd;
 
     points = init_points_tab(argv);
-    // *k = 0;
-    // fd = open(argv[1], O_RDONLY);
-    // if (fd == -1)
-    //     exit_error();
-    // line = get_next_line(fd);
-    // while (line != NULL)
-    // {
-    //     loop_fd(&points, line, k, argv);
-    //     line = get_next_line(fd);
-    // }
+    k = 0;
+    fd = open(argv[1], O_RDONLY);
+    if (fd == -1)
+        exit_error();
+    line = get_next_line(fd);
+    while (line != NULL)
+    {
+        loop_fd(&points, line, &k, argv);
+        free(line);
+        line = get_next_line(fd);
+    }
     return (points);
 }
 
@@ -84,7 +76,7 @@ void    loop_fd(t_point ***points, char *line, int *k, char **argv)
         else
             (*points)[*k]->color = atoi_hexa(ft_strchr(array[i], 'x') + 1);
         i++;
-        *k++;
+        *k = *k + 1;
     }
     free_tab(array);
 }
@@ -93,6 +85,7 @@ int count_nb(char **array)
 {
     int i;
 
+    i = 0;
     while (array[i])
     {
         if (ft_strncmp(array[i], "\n", 1) == 0)
