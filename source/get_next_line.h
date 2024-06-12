@@ -6,14 +6,14 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 12:15:49 by vdarras           #+#    #+#             */
-/*   Updated: 2024/06/10 20:24:31 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/06/12 12:28:44 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
+#  define BUFFER_SIZE 5000000
 # endif
 # include <stdlib.h>
 # include <unistd.h>

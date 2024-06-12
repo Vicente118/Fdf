@@ -58,8 +58,25 @@ void    draw_background(t_mlx_data **data)
     mlx_put_image_to_window((*data)->mlx_connection, (*data)->mlx_window, (*data) ->img->img_ptr, 350, 0);
 }
 
+void    text_menu(t_mlx_data *data)
+{
+    int color;
+
+    color = 0xE7E5E5; 
+    mlx_string_put(data->mlx_connection, data->mlx_window, 115, 50, color, "--- FDF ---");
+    mlx_string_put(data->mlx_connection, data->mlx_window, 12, 130, color, "- Horizontal translation : arrows");
+    mlx_string_put(data->mlx_connection, data->mlx_window, 12, 170, color, "- Vertical translation : arrows");
+    mlx_string_put(data->mlx_connection, data->mlx_window, 12, 210, color, "- Zoom in : press I");
+    mlx_string_put(data->mlx_connection, data->mlx_window, 12, 250, color, "- Zoom out : press O");
+    mlx_string_put(data->mlx_connection, data->mlx_window, 12, 290, color, "- X axe rotation : press X");
+    mlx_string_put(data->mlx_connection, data->mlx_window, 12, 330, color, "- Y axe rotation : press Y");
+    mlx_string_put(data->mlx_connection, data->mlx_window, 12, 370, color, "- Z axe rotation : press Z");
+    mlx_string_put(data->mlx_connection, data->mlx_window, 12, 410, color, "- Press SPACE to rotate X Y Z");
+}
+
 void    draw(t_mlx_data **data)
 {
     draw_menu(data);
     draw_background(data);
+    text_menu(*data);
 }

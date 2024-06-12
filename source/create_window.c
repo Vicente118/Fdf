@@ -5,6 +5,7 @@ t_mlx_data    *create_window(void)
     t_mlx_data *data;
 
     data = malloc(sizeof(t_mlx_data));
+    data->img = malloc(sizeof(t_img));
     data->mlx_connection = mlx_init();
     if (!data->mlx_connection)
         exit_malloc();

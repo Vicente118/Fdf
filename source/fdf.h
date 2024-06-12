@@ -33,12 +33,14 @@ typedef struct s_count
 
 typedef struct s_point
 {
-    int x;
-    int y;
-    int z;
-    int color;
-    int x_proj;
-    int y_proj;
+    float x;
+    float y;
+    float z;
+    float color;
+    float x_proj;
+    float y_proj;
+    int   height;
+    int   width;
 }           t_point;
 
 typedef struct s_img
@@ -80,6 +82,9 @@ void        place_points(t_point **points, t_mlx_data *data);
 void        draw_menu(t_mlx_data **data);
 void        draw_background(t_mlx_data **data);
 void        draw(t_mlx_data **data);
+void        text_menu(t_mlx_data *data);
+int		    zoom_factor(char **argv);
+void	    projection(t_point ***points, char **argv);
 
 // ERROR MANAGEMENT
 void        exit_error(void);

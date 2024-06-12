@@ -32,6 +32,7 @@ RM = rm -rf
 SRCS = source/fdf.c source/create_window.c source/exit_error.c \
 	   source/parsing.c source/get_next_line.c source/get_next_line_utils.c \
 	   source/free_tab.c source/count_line.c source/atoi_hexa.c source/menu.c \
+	   source/projection.c\
 
 OBJS = $(SRCS:.c=.o)
 
@@ -50,7 +51,7 @@ $(NAME) : $(OBJS)
 	@echo "\033[0;34m	██║      ██████╔╝  ██║     		"
 	@echo "\033[0;34m	╚═╝      ╚═════╝   ╚═╝  			"
 	@echo "                 					"
-	@$(CC) $(OBJS) $(LIBFT) $(CFLAGS) -g $(MLX_LIB) $(MLX) -o $(NAME)
+	@$(CC) $(OBJS) $(LIBFT) $(CFLAGS) -g -fsanitize=address $(MLX_LIB) $(MLX) -o $(NAME)
 
 %.o : %.c	
 	@$(CC) -o $@ -c $<
