@@ -32,7 +32,9 @@ void	projection(t_point ***points, char **argv)
 	{
 		(*points)[i]->x *= zoom;
 		(*points)[i]->y *= zoom;
-		(*points)[i]->z *= zoom; 
+		(*points)[i]->z *= zoom;
+		// (*points)[i]->x = (*points)[i]->x * (sqrt(2)/2) + (*points)[i]->z * (sqrt(2)/2);
+		// (*points)[i]->z = -1 * (*points)[i]->x * (sqrt(2)/2) + (*points)[i]->z * (sqrt(2)/2);
 		(*points)[i]->x_proj = ((*points)[i]->x - (*points)[i]->y) * (sqrt(3) / 2);
 		(*points)[i]->y_proj = (((*points)[i]->x + (*points)[i]->y) / 2) - (*points)[i]->z;
 		(*points)[i]->x_proj += 350 + (1920 - 350) / 2;
