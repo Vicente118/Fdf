@@ -10,7 +10,7 @@ t_mlx_data    *create_window(void)
     if (!data->mlx_connection)
         exit_malloc();
     data->mlx_window = mlx_new_window(data->mlx_connection,
-                                        HEIGHT, WIDTH, "Fdf");
+                                         WIDTH,HEIGHT, "Fdf");
     if (!data->mlx_window)
     {
         // mlx_destroy_display(data->mlx_connection);

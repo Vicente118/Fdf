@@ -10,6 +10,8 @@
 #endif
 #ifdef __APPLE__
     # define XK_Escape 53
+    # define XK_o      31
+    # define XK_i      34 
     # include "../mlx/mlx.h"
 #endif
 
@@ -18,8 +20,8 @@
 # include <stdio.h>
 # include <math.h>
 
-# define HEIGHT 1920
-# define WIDTH 1080
+# define HEIGHT 1080
+# define WIDTH 1920
 // ALPHA WIDHT / HEIGHT
 // FOV  1 / tan(teta / 2)
 // lambda (Zfar / (Zfar - Znear)) - ((Zfar * Znear) / (Zfar - Znear))
@@ -57,34 +59,40 @@ typedef struct s_mlx_data
     void    *mlx_connection;
     void    *mlx_window;
     t_img   *img;
+    t_point *point;
 }           t_mlx_data;
 
 // WINDOW CREATION
 t_mlx_data  *create_window(void);
 
 // INPUT
-int         handle_input(int keysym, t_mlx_data *data);
+void        handle_input(int keysym, t_mlx_data *data);
+int		    handle_key(int keysym, t_mlx_data *data);
+
 
 //PARSING
 int         count_points(int fd);
 int         count_col(char **argv);
 int         count_line(char **argv);
 int         count_nb(char **array);
-void        loop_fd(t_point ***points, char *line, int *k, char **argv);
-t_point     **parse_fd(char **argv);
-t_point     **init_points_tab(char **argv);
-t_point     **fill_points_tab(char **argv);
+void        loop_fd(t_point *points, char *line, int *k, char **argv);
+t_point     *parse_fd(char **argv);
+t_point     *init_points_tab(char **argv);
+t_point     *fill_points_tab(char **argv);
 size_t	    count_words(char const *s, char c);
 int         atoi_hexa(char *str);
 
 //PLACE POINTS
-void        place_points(t_point **points, t_mlx_data *data);
-void        draw_menu(t_mlx_data **data);
-void        draw_background(t_mlx_data **data);
-void        draw(t_mlx_data **data);
+void        place_points(t_point *points, t_mlx_data *data);
+void        draw_menu(t_mlx_data *data, t_point *points);
+void        draw_background(t_mlx_data *data);
+void        draw(t_mlx_data *data, t_point *point);
 void        text_menu(t_mlx_data *data);
-int		    zoom_factor(char **argv);
-void	    projection(t_point ***points, char **argv);
+float		zoom_factor(char **argv);
+void	    projection(t_point *points, char **argv);
+void	    draw_point(t_mlx_data *data, int x, int y, int color);
+void		zoom_in(t_point *points, t_mlx_data *data);
+void		zoom_out(t_point *points, t_mlx_data *data);
 
 // ERROR MANAGEMENT
 void        exit_error(void);
