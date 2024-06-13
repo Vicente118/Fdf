@@ -13,6 +13,7 @@ int   cross_event(t_mlx_data *data)
     return (0);
 } 
 
+
 int main(int argc, char **argv)
 {
     t_mlx_data  *data;
@@ -27,11 +28,17 @@ int main(int argc, char **argv)
     points = parse_fd(argv);
     data = create_window();
 
+
     projection(points, argv);
     data->point = points;
     draw(data, points);
     mlx_key_hook(data->mlx_window, &handle_key, data);
-    // mlx_hook(data->mlx_window, 17, 0, &cross_event, data);  
+
+    // mlx_hook(data->mlx_window, 02, 0, key_press, data);
+    // mlx_hook(data->mlx_window, 03, 0, key_release, data);
+    // mlx_loop_hook(data->mlx_connection, rotation_x, data);
+
+    mlx_hook(data->mlx_window, 17, 0, &cross_event, data);  
     mlx_loop(data->mlx_connection);
 }
 

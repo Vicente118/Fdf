@@ -33,6 +33,7 @@ SRCS = source/fdf.c source/create_window.c source/exit_error.c \
 	   source/parsing.c source/get_next_line.c source/get_next_line_utils.c \
 	   source/free_tab.c source/count_line.c source/atoi_hexa.c source/menu.c \
 	   source/projection.c source/key_hook.c source/utils.c source/draw_line.c \
+	   source/key_press.c
 
 OBJS = $(SRCS:.c=.o)
 

@@ -16,6 +16,10 @@
     # define XK_Down   125
     # define XK_Left   123
     # define XK_Right  124
+    # define XK_x      7
+    # define XK_y      16
+    # define XK_z      6
+    # define XK_Space  49
     # include "../mlx/mlx.h"
 #endif
 
@@ -62,6 +66,7 @@ typedef struct s_mlx_data
 {
     void    *mlx_connection;
     void    *mlx_window;
+    int     key_pressed[255];
     t_img   *img;
     t_point *point;
 }           t_mlx_data;
@@ -70,9 +75,11 @@ typedef struct s_mlx_data
 t_mlx_data  *create_window(void);
 
 // INPUT
+void	    init_key(t_mlx_data *data);
 void        handle_input(int keysym, t_mlx_data *data);
 int		    handle_key(int keysym, t_mlx_data *data);
-
+int         key_press(int keysym, t_mlx_data *data);
+int         key_release(int keysym, t_mlx_data *data);
 
 //PARSING
 int         count_points(int fd);
@@ -97,6 +104,8 @@ void	    projection(t_point *points, char **argv);
 void	    draw_point(t_mlx_data *data, int x, int y, int color);
 void		zoom_in(t_point *points, t_mlx_data *data);
 void		zoom_out(t_point *points, t_mlx_data *data);
+int	*rotation_x(t_point *points, t_mlx_data *data, char **argv);
+
 
 // ERROR MANAGEMENT
 void        exit_error(void);

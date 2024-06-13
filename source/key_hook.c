@@ -90,6 +90,24 @@ void	translate_down(t_point *points, t_mlx_data *data)
 	draw(data, points);
 }
 
+// int	*rotation_x(t_point *points, t_mlx_data *data, char **argv)
+// {
+// 	int	i;
+	
+// 	i = 0;
+// 	if (data->key_pressed[XK_x])
+// 	{
+// 		while(points[i].x != -1)
+// 		{
+// 			(points)[i].y = cos(0.0349066) * points[i].y - sin(0.0349066) * points[i].z;
+// 			(points)[i].z = sin(0.0349066) * points[i].y + cos(0.0349066) * points[i].z;
+// 			i++; 
+// 		}
+// 	}
+// 	projection(data->point, argv);
+// 	draw(data, points);
+// 	return (0);
+// }
 
 int		handle_key(int keysym, t_mlx_data *data /*, t_point ***points */)
 {
