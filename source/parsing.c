@@ -9,6 +9,7 @@ t_point *init_points_tab(char **argv)
 
     col = count_col(argv);
     count = col * count_line(argv);
+    printf("%d\n", count);
     if (count == -1)
     {
         write(2, "Error : nothing to read\n", 25);

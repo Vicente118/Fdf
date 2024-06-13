@@ -38,6 +38,59 @@ void	zoom_out(t_point *points, t_mlx_data *data)
 	draw(data, points);
 }
 
+void	translate_left(t_point *points, t_mlx_data *data)
+{
+	int	i;
+	
+	i = 0;
+	while(points[i].x != -1)
+	{
+		(points)[i].x_proj -= 30;
+		i++; 
+	}
+	draw(data, points);
+}
+
+void	translate_right(t_point *points, t_mlx_data *data)
+{
+	int	i;
+	
+	i = 0;
+	while(points[i].x != -1)
+	{
+		(points)[i].x_proj += 30;
+		i++; 
+	}
+	draw(data, points);
+}
+
+void	translate_up(t_point *points, t_mlx_data *data)
+{
+	int	i;
+	
+	i = 0;
+	while(points[i].x != -1)
+	{
+		(points)[i].y_proj -= 30;
+		i++; 
+	}
+	draw(data, points);
+}
+
+void	translate_down(t_point *points, t_mlx_data *data)
+{
+	int	i;
+	
+	i = 0;
+	while(points[i].x != -1)
+	{
+		(points)[i].y_proj += 30;
+		i++; 
+	}
+	draw(data, points);
+}
+
+
 int		handle_key(int keysym, t_mlx_data *data /*, t_point ***points */)
 {
 	if (keysym == XK_i)
@@ -46,5 +99,13 @@ int		handle_key(int keysym, t_mlx_data *data /*, t_point ***points */)
 		zoom_out(data->point, data);
 	else if (keysym == XK_Escape)
 		handle_input(keysym, data);
+	else if (keysym == XK_Left)
+		translate_left(data->point, data);
+	else if (keysym == XK_Right)
+		translate_right(data->point, data);
+	else if (keysym == XK_Up)
+		translate_up(data->point, data);
+	else if (keysym == XK_Down)
+		translate_down(data->point, data);
 	return(0);
 }

@@ -12,6 +12,10 @@
     # define XK_Escape 53
     # define XK_o      31
     # define XK_i      34 
+    # define XK_Up     126
+    # define XK_Down   125
+    # define XK_Left   123
+    # define XK_Right  124
     # include "../mlx/mlx.h"
 #endif
 
