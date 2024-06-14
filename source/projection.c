@@ -8,13 +8,16 @@ float		ft_min(char **argv)
 	if ((((1920 - 350) / col) / 2) < (1080 / lignes) / 2)
 		return (((1920 - 350) / col) / 2);
 	else
-		return ((1080 / lignes) / 2);
+		return ((1080 / lignes) / 3);
 
 }
 
 float		zoom_factor(char **argv)
 {
 	float	zoom;
+	int tot;
+
+	tot = count_line(argv) * count_col(argv);
 
 	zoom = 1.5;
 	return (zoom);
