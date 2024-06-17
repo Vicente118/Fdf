@@ -1,9 +1,9 @@
 #include "fdf.h"
 
-float		ft_min(char **argv)
+float		ft_min(char **argv, t_mlx_data *data)
 {
-	int lignes = count_line(argv);
-	int col = count_col(argv);
+	int lignes = data->height;
+	int col = data->width;
 
 	if ((((1920 - 350) / col) / 2) < (1080 / lignes) / 2)
 		return (((1920 - 350) / col) / 2);
@@ -12,24 +12,24 @@ float		ft_min(char **argv)
 
 }
 
-float		zoom_factor(char **argv)
+float		zoom_factor(char **argv, t_mlx_data *data)
 {
 	float	zoom;
 	int tot;
 
-	tot = count_line(argv) * count_col(argv);
+	// tot = count_line(argv) * count_col(argv);
 
 	zoom = 1.5;
 	return (zoom);
 }
 
-void	projection(t_point *points, char **argv)
+void	projection(t_point *points, t_mlx_data *data, char **argv)
 {
 	int	i;
 	float	zoom;
 
 	i = 0;
-	zoom = zoom_factor(argv);
+	zoom = zoom_factor(argv, data);
 	while (points[i].x != -1)
 	{
 		(points)[i].x *= zoom;

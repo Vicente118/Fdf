@@ -19,8 +19,8 @@ void		zoom_in(t_point *points, t_mlx_data *data)
 	{
 		(points)[i].x_proj *= 1.1;
 		(points)[i].y_proj *= 1.1;
-		(points)[i].x_proj -= 100;
-		(points)[i].y_proj -= 75;
+		(points)[i].x_proj -= 115;
+		(points)[i].y_proj -= 40;
 		i++;
 	}
 	draw(data, points);
@@ -35,8 +35,8 @@ void	zoom_out(t_point *points, t_mlx_data *data)
 	{
 		(points)[i].x_proj *= 0.9;
 		(points)[i].y_proj *= 0.9;
-		(points)[i].x_proj += 100;
-		(points)[i].y_proj += 75;
+		(points)[i].x_proj += 115;
+		(points)[i].y_proj += 40;
 		i++;
 	}
 	draw(data, points);

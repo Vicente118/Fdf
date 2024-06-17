@@ -29,8 +29,11 @@ int main(int argc, char **argv)
     data = create_window();
 
 
-    projection(points, argv);
+    projection(points, data, argv);
     data->point = points;
+    data->width = count_col(argv); 
+    data->height = count_line(argv);
+    printf("%d\n %d \n", data->width, data->height);
     draw(data, points);
     mlx_key_hook(data->mlx_window, &handle_key, data);
 

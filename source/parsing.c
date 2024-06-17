@@ -9,7 +9,6 @@ t_point *init_points_tab(char **argv)
 
     col = count_col(argv);
     count = col * count_line(argv);
-    printf("%d\n", count);
     if (count == -1)
     {
         write(2, "Error : nothing to read\n", 25);
@@ -19,14 +18,8 @@ t_point *init_points_tab(char **argv)
     points = malloc(sizeof(t_point) * (count + 1));
     if (!points)
         exit(1);
-    // while (j < count)
-    // {
-    //     points[j] = malloc(sizeof(t_point));
-    //     if (!points[j])
-    //         free_tab_error(points, j);
-    //     j++;
-    // }
     points[count].x = -1;
+    points[count].y = -1;
     return(points);
 }
 

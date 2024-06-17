@@ -67,6 +67,8 @@ typedef struct s_mlx_data
     void    *mlx_connection;
     void    *mlx_window;
     int     key_pressed[255];
+    int     width;
+    int     height;
     t_img   *img;
     t_point *point;
 }           t_mlx_data;
@@ -99,12 +101,14 @@ void        draw_menu(t_mlx_data *data, t_point *points);
 void        draw_background(t_mlx_data *data);
 void        draw(t_mlx_data *data, t_point *point);
 void        text_menu(t_mlx_data *data);
-float		zoom_factor(char **argv);
-void	    projection(t_point *points, char **argv);
+float		zoom_factor(char **argv, t_mlx_data *data);
+void	    projection(t_point *points, t_mlx_data *data, char **argv);
 void	    draw_point(t_mlx_data *data, int x, int y, int color);
 void		zoom_in(t_point *points, t_mlx_data *data);
 void		zoom_out(t_point *points, t_mlx_data *data);
-int	*rotation_x(t_point *points, t_mlx_data *data, char **argv);
+int     	*rotation_x(t_point *points, t_mlx_data *data, char **argv);
+void        draw_line(t_mlx_data *data, int start_x, int start_y, int end_x, int end_y, int color0, int color1);
+
 
 
 // ERROR MANAGEMENT
