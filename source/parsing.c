@@ -6,7 +6,7 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 19:03:34 by vdarras           #+#    #+#             */
-/*   Updated: 2024/06/18 19:15:11 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/06/19 14:44:43 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	loop_fd(t_point *points, char *line, int *k, char **argv)
 
 int	count_nb(char **array)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (array[i])

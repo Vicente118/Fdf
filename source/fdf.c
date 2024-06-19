@@ -6,7 +6,7 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 19:03:09 by vdarras           #+#    #+#             */
-/*   Updated: 2024/06/18 19:40:54 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/06/19 15:26:43 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,13 @@ int	main(int argc, char **argv)
 	}
 	points = parse_fd(argv);
 	data = create_window();
-	projection(points, data, argv);
 	data->point = points;
 	data->argv = argv;
 	data->width = count_col(argv);
 	data->height = count_line(argv);
 	if (data->width == -1 && data->height == 0)
 		cross_event(data);
-	printf("%d\n %d \n", data->width, data->height);
+	projection(points, data, argv);
 	draw(data, points);
 	mlx_key_hook(data->mlx_window, &handle_key, data);
 	mlx_hook(data->mlx_window, 17, 0, &cross_event, data);

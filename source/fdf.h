@@ -6,14 +6,17 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 19:03:11 by vdarras           #+#    #+#             */
-/*   Updated: 2024/06/18 19:07:21 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/06/19 15:41:22 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// --- TODO --- 
+// ROTATION
+// LEAKS FIX --> FINISH
 
 #ifndef FDF_H
 # define FDF_H
 
-//# include "../mlx/mlx.h"
 # include "../libft/libft.h"
 # include "get_next_line.h"
 # ifdef __linux__
@@ -47,9 +50,6 @@
 
 # define HEIGHT 1080
 # define WIDTH 1920
-// ALPHA WIDHT / HEIGHT
-// FOV  1 / tan(teta / 2)
-// lambda (Zfar / (Zfar - Znear)) - ((Zfar * Znear) / (Zfar - Znear))
 
 typedef struct s_count
 {
@@ -68,7 +68,6 @@ typedef struct s_point
 	float	y_proj;
 	int		height;
 	int		width;
-	float	closest;
 }			t_point;
 
 typedef struct s_img
@@ -88,6 +87,12 @@ typedef struct s_mlx_data
 	int		width;
 	int		height;
 	char	**argv;
+	int		dx;
+	int		dy;
+	int		sx;
+	int		sy;
+	int		err;
+	int		err2;
 	t_img	*img;
 	t_point	*point;
 }			t_mlx_data;
@@ -116,7 +121,7 @@ int			atoi_hexa(char *str);
 
 // PLACE POINTS
 void		place_points(t_point *points, t_mlx_data *data);
-void		draw_menu(t_mlx_data *data, t_point *points);
+void		draw_all(t_mlx_data *data, t_point *points);
 void		draw_background(t_mlx_data *data);
 void		draw(t_mlx_data *data, t_point *point);
 void		text_menu(t_mlx_data *data);
@@ -125,10 +130,15 @@ void		projection(t_point *points, t_mlx_data *data, char **argv);
 void		draw_point(t_mlx_data *data, int x, int y, int color);
 void		zoom_in(t_point *points, t_mlx_data *data);
 void		zoom_out(t_point *points, t_mlx_data *data);
+void		translate_left(t_point *points, t_mlx_data *data);
+void		translate_right(t_point *points, t_mlx_data *data);
+void		translate_up(t_point *points, t_mlx_data *data);
 void		rotation_x(t_point *points, t_mlx_data *data, char **argv);
-void		draw_line(t_mlx_data *data, int start_x, int start_y, int end_x,
-				int end_y, int color0, int color1);
+void		draw_line(t_mlx_data *data, t_point start, t_point end, int color);
 void		projection_paral(t_point *points, t_mlx_data *data, char **argv);
+void		draw_line_condition(t_mlx_data *data, float *x, float *y);
+void		first_loop(t_mlx_data *data);
+void		last_loop(t_mlx_data *data);
 
 // ERROR MANAGEMENT
 void		exit_error(void);

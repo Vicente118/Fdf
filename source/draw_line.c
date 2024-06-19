@@ -6,7 +6,7 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 19:03:05 by vdarras           #+#    #+#             */
-/*   Updated: 2024/06/18 19:14:46 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/06/19 15:04:01 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,37 +37,43 @@ void	draw_point(t_mlx_data *data, int x, int y, int color)
 	}
 }
 
-void	draw_line(t_mlx_data *data, int x0, int y0, int x1, int y1, int color0,
-		int color1)
+void	draw_line(t_mlx_data *data, t_point start, t_point end, int color)
 {
-	int		dx;
-	int		dy;
-	int		sx;
-	int		sy;
-	int		err;
-	float	ratio;
-	int		e2;
-
-	dx = abs(x1 - x0);
-	dy = abs(y1 - y0);
-	sx = (x0 < x1) ? 1 : -1;
-	sy = (y0 < y1) ? 1 : -1;
-	err = dx - dy;
+	start.x_proj = (int)start.x_proj;
+	start.y_proj = (int)start.y_proj;
+	end.x_proj = (int)end.x_proj;
+	end.y_proj = (int)end.y_proj;
+	data->dx = abs(end.x_proj - start.x_proj);
+	data->dy = abs(end.y_proj - start.y_proj);
+	data->sx = -1;
+	data->sy = -1;
+	if (start.x_proj < end.x_proj)
+		data->sx = 1;
+	if (start.y_proj < end.y_proj)
+		data->sy = 1;
+	data->err = data->dx - data->dy;
 	while (1)
 	{
-		draw_point(data, x0, y0, color0);
-		if (x0 == x1 && y0 == y1)
+		draw_point(data, start.x_proj, start.y_proj, color);
+		if (start.x_proj == end.x_proj && start.y_proj == end.y_proj)
 			break ;
-		e2 = 2 * err;
-		if (e2 > -dy)
-		{
-			err -= dy;
-			x0 += sx;
-		}
-		if (e2 < dx)
-		{
-			err += dx;
-			y0 += sy;
-		}
+		data->err2 = 2 * data->err;
+		draw_line_condition(data, &start.x_proj, &start.y_proj);
+	}
+}
+
+void	draw_line_condition(t_mlx_data *data, float *x, float *y)
+{
+	*x = (int)*x;
+	*y = (int)*y;
+	if (data->err2 > -data->dy)
+	{
+		data->err -= data->dy;
+		*x += data->sx;
+	}
+	if (data->err2 < data->dx)
+	{
+		data->err += data->dx;
+		*y += data->sy;
 	}
 }

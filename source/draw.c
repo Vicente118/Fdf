@@ -6,23 +6,46 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 19:03:32 by vdarras           #+#    #+#             */
-/*   Updated: 2024/06/18 19:03:33 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/06/19 15:12:20 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	draw_menu(t_mlx_data *data, t_point *points)
+void	draw_all(t_mlx_data *data, t_point *points)
 {
 	int	i;
 	int	j;
-	int	pixel;
 	int	total;
 
 	(data)->img->img_ptr = mlx_new_image((data)->mlx_connection, 1920, 1080);
 	(data)->img->img_pixels_ptr = mlx_get_data_addr((data)->img->img_ptr,
 			&((data)->img->bits_per_pixel), &((data)->img->size_line),
 			&((data)->img->endian));
+	first_loop(data);
+	i = 0;
+	total = data->height * data->width;
+	while (i + 1 <= total)
+	{
+		draw_point(data, points[i].x_proj, points[i].y_proj, points[i].color);
+		if ((i + 1) % data->width > 0)
+			draw_line(data, points[i], points[i + 1], points[i].color);
+		if ((i / data->width) < data->height - 1)
+			draw_line(data, points[i], points[i + data->width],
+				points[i].color);
+		i++;
+	}
+	last_loop(data);
+	mlx_put_image_to_window((data)->mlx_connection, (data)->mlx_window,
+		(data)->img->img_ptr, 0, 0);
+}
+
+void	first_loop(t_mlx_data *data)
+{
+	int	i;
+	int	j;
+	int	pixel;
+
 	i = 0;
 	while (i < 1080)
 	{
@@ -38,21 +61,14 @@ void	draw_menu(t_mlx_data *data, t_point *points)
 		}
 		i++;
 	}
-	i = 0;
-	total = data->height * data->width;
-	while (i + 1 <= total)
-	{
-		draw_point(data, points[i].x_proj, points[i].y_proj, points[i].color);
-		if ((i + 1) % data->width > 0)
-			draw_line(data, points[i].x_proj, points[i].y_proj, points[i
-				+ 1].x_proj, points[i + 1].y_proj, points[i].color, points[i
-				+ 1].color);
-		if ((i / data->width) < data->height - 1)
-			draw_line(data, points[i].x_proj, points[i].y_proj, points[i
-				+ data->width].x_proj, points[i + data->width].y_proj,
-				points[i].color, points[i + 1].color);
-		i++;
-	}
+}
+
+void	last_loop(t_mlx_data *data)
+{
+	int	i;
+	int	j;
+	int	pixel;
+
 	i = 0;
 	while (i < 1080)
 	{
@@ -68,8 +84,6 @@ void	draw_menu(t_mlx_data *data, t_point *points)
 		}
 		i++;
 	}
-	mlx_put_image_to_window((data)->mlx_connection, (data)->mlx_window,
-		(data)->img->img_ptr, 0, 0);
 }
 
 void	text_menu(t_mlx_data *data)
@@ -103,6 +117,6 @@ void	text_menu(t_mlx_data *data)
 
 void	draw(t_mlx_data *data, t_point *points)
 {
-	draw_menu(data, points);
+	draw_all(data, points);
 	text_menu(data);
 }
