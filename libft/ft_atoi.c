@@ -6,7 +6,7 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 16:27:18 by vdarras           #+#    #+#             */
-/*   Updated: 2024/04/12 16:22:59 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/06/20 17:55:33 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	ft_atoi(const char *str)
 /*
 int main(int argc, char **argv)
 {
-	char *s = "\t\v\f\r\n \f-06050";
+	char *s = "\v\f\r\n \f-06050";
     // const char *str = "\t  \n 8166";
 	printf("%d\n",ft_atoi(s));
 	printf("%d\n",atoi(s));

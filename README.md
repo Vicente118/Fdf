@@ -22,7 +22,7 @@ Choose the map of your choice, or create yours.
 - `d`      : Decrease altitude
 - `n`      : Isometric projection (Default)
 - `m`      : Parallel projection
-- `ESC`    : Close the program
+- `ESC`    : Close the program 
 
 ## Images
 42 in relief

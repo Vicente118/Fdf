@@ -6,7 +6,7 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 19:03:11 by vdarras           #+#    #+#             */
-/*   Updated: 2024/06/20 17:22:29 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/06/20 17:56:11 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@
 
 # include "../libft/libft.h"
 # include "get_next_line.h"
+
 # ifdef __linux__
 #  include "../mlx_linux/mlx.h"
 #  include <X11/keysym.h>
 # endif
+
 # ifdef __APPLE__
 #  define XK_ESCAPE 53
 #  define XK_O 31
