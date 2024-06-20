@@ -12,7 +12,7 @@ FDF is a 3D graphics project written in C that can read a coordinate map and rep
 ```
 Choose the map of your choice, or create yours.
 
-## Option
+## Options
 
 - `Arrows` : Translation
 - `i`      : Zoom in
