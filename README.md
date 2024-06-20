@@ -24,9 +24,11 @@ Choose the map of your choice, or create yours.
 - `ESC`    : close the program
 
 ## Images and videos
-[42.webm](https://github.com/Vicente118/Fdf/assets/150040812/18922551-304d-4c0c-93dc-eb720b01f322)
-[JAPAN_LANDSCAPE.webm](https://github.com/Vicente118/Fdf/assets/150040812/2118b14f-fbd0-423d-9bf6-d36be8f0cacd)
-[MANDELBROT_FRACTAL.webm](https://github.com/Vicente118/Fdf/assets/150040812/51a5c8f8-acbc-4c14-b8bc-843d31083c64)
+![42.webm](https://github.com/Vicente118/Fdf/assets/150040812/18922551-304d-4c0c-93dc-eb720b01f322)
+
+![JAPAN_LANDSCAPE.webm](https://github.com/Vicente118/Fdf/assets/150040812/2118b14f-fbd0-423d-9bf6-d36be8f0cacd)
+
+![MANDELBROT_FRACTAL.webm](https://github.com/Vicente118/Fdf/assets/150040812/51a5c8f8-acbc-4c14-b8bc-843d31083c64)
 
 
 
