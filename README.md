@@ -14,15 +14,15 @@ Choose the map of your choice, or create yours.
 
 ## Option
 
-- `Arrows` : translation
-- `i`      : zoom in
-- `o`      : zoom out
-- `x`      : rotate
-- `a`      : increase altitude
-- `d`      : decrease altitude
-- `n`      : isometric projection (Default)
-- `m`      : parallel projection
-- `ESC`    : close the program
+- `Arrows` : Translation
+- `i`      : Zoom in
+- `o`      : Zoom out
+- `x`      : Rotate
+- `a`      : Increase altitude
+- `d`      : Decrease altitude
+- `n`      : Isometric projection (Default)
+- `m`      : Parallel projection
+- `ESC`    : Close the program
 
 ## Images
 42 in relief
