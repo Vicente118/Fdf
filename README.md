@@ -24,8 +24,6 @@ Choose the map of your choice, or create yours.
 - `ESC`    : close the program
 
 ## Images and videos
-
-![42](https://github.com/Vicente118/Fdf/assets/150040812/22f2d250-965e-4378-b3eb-8341aa48a76e)
-
+(https://github.com/Vicente118/Fdf/assets/150040812/9a95ffbc-930a-4157-9a46-36e6c4377e32)
 
 
