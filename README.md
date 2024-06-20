@@ -7,6 +7,7 @@ FDF is a 3D graphics project written in C that can read a coordinate map and rep
 > git clone git@github.com:Vicente118/Fdf.git
 > cd Fdf
 > make
+> make clean
 > ./fdf maps/CHOOSE_MAP
 ```
 Choose the map of your choice, or create yours.
