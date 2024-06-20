@@ -6,7 +6,7 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 19:03:30 by vdarras           #+#    #+#             */
-/*   Updated: 2024/06/20 12:33:06 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/06/20 17:23:31 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	handle_key(int keysym, t_mlx_data *data)
 	else if (keysym == XK_q)
 		increase_altitude(data->point, data);
 	else if (keysym == XK_x)
-		rotation_x(data->point, data, data->argv);
+		rotation_x(data->point, data);
 	else if (keysym == XK_m)
 		projection_paral(data->point, data, data->argv);
 	else if (keysym == XK_n)

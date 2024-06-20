@@ -6,7 +6,7 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 19:03:11 by vdarras           #+#    #+#             */
-/*   Updated: 2024/06/20 12:34:37 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/06/20 17:22:29 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 
 # define HEIGHT 1080
 # define WIDTH 1920
@@ -85,6 +86,10 @@ typedef struct s_mlx_data
 	int		sy;
 	int		err;
 	int		err2;
+	float	translated_x;
+	float	translated_y;
+	float	rotated_x;
+	float	rotated_y;
 	t_img	*img;
 	t_point	*point;
 }			t_mlx_data;
@@ -126,7 +131,7 @@ void		zoom_out(t_point *points, t_mlx_data *data);
 void		translate_left(t_point *points, t_mlx_data *data);
 void		translate_right(t_point *points, t_mlx_data *data);
 void		translate_up(t_point *points, t_mlx_data *data);
-void		rotation_x(t_point *points, t_mlx_data *data, char **argv);
+void		rotation_x(t_point *points, t_mlx_data *data);
 void		draw_line(t_mlx_data *data, t_point start, t_point end, int color);
 void		projection_paral(t_point *points, t_mlx_data *data, char **argv);
 void		draw_line_condition(t_mlx_data *data, float *x, float *y);
