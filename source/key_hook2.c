@@ -6,7 +6,7 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:44:05 by vdarras           #+#    #+#             */
-/*   Updated: 2024/06/19 14:44:16 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/06/20 12:33:01 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	zoom_in(t_point *points, t_mlx_data *data)
 		(points)[i].y_proj -= 40;
 		i++;
 	}
+	mlx_destroy_image(data->mlx_connection, data->img->img_ptr);
 	draw(data, points);
 }
 
@@ -41,6 +42,7 @@ void	zoom_out(t_point *points, t_mlx_data *data)
 		(points)[i].y_proj += 40;
 		i++;
 	}
+	mlx_destroy_image(data->mlx_connection, data->img->img_ptr);
 	draw(data, points);
 }
 
@@ -54,6 +56,7 @@ void	translate_left(t_point *points, t_mlx_data *data)
 		(points)[i].x_proj -= 30;
 		i++;
 	}
+	mlx_destroy_image(data->mlx_connection, data->img->img_ptr);
 	draw(data, points);
 }
 
@@ -67,6 +70,7 @@ void	translate_right(t_point *points, t_mlx_data *data)
 		(points)[i].x_proj += 30;
 		i++;
 	}
+	mlx_destroy_image(data->mlx_connection, data->img->img_ptr);
 	draw(data, points);
 }
 
@@ -80,5 +84,6 @@ void	translate_up(t_point *points, t_mlx_data *data)
 		(points)[i].y_proj -= 30;
 		i++;
 	}
+	mlx_destroy_image(data->mlx_connection, data->img->img_ptr);
 	draw(data, points);
 }

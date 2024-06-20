@@ -6,7 +6,7 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 19:03:11 by vdarras           #+#    #+#             */
-/*   Updated: 2024/06/19 15:41:22 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/06/20 12:34:37 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,6 @@
 # define HEIGHT 1080
 # define WIDTH 1920
 
-typedef struct s_count
-{
-	int		i;
-	int		j;
-	int		k;
-}			t_count;
-
 typedef struct s_point
 {
 	float	x;
@@ -83,7 +76,6 @@ typedef struct s_mlx_data
 {
 	void	*mlx_connection;
 	void	*mlx_window;
-	int		key_pressed[255];
 	int		width;
 	int		height;
 	char	**argv;
@@ -106,6 +98,7 @@ void		handle_input(int keysym, t_mlx_data *data);
 int			handle_key(int keysym, t_mlx_data *data);
 int			key_press(int keysym, t_mlx_data *data);
 int			key_release(int keysym, t_mlx_data *data);
+int			cross_event(t_mlx_data *data);
 
 // PARSING
 int			count_points(int fd);

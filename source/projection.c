@@ -6,7 +6,7 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 19:03:36 by vdarras           #+#    #+#             */
-/*   Updated: 2024/06/19 15:37:17 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/06/20 11:42:00 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	projection(t_point *points, t_mlx_data *data, char **argv)
 {
 	int		i;
 	float	zoom;
-	float		total;
+	float	total;
 
 	i = 0;
 	zoom = zoom_factor(argv, data);
