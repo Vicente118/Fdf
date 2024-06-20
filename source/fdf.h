@@ -6,13 +6,9 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 19:03:11 by vdarras           #+#    #+#             */
-/*   Updated: 2024/06/20 17:56:11 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/06/20 18:00:35 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// --- TODO --- 
-// ROTATION
-// LEAKS FIX --> FINISH
 
 #ifndef FDF_H
 # define FDF_H
