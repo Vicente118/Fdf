@@ -2,7 +2,7 @@
 
 FDF is a 3D graphics project written in C that can read a coordinate map and represent it in a 3D wireframe model.
 
-## Compiling and execute the program (Only on MacOS and LINUX)
+## Compiling and execute the program (Only on MacOS)
 ```
 > git clone git@github.com:Vicente118/Fdf.git
 > cd Fdf
